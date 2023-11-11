@@ -24,7 +24,6 @@ public class cardboardBox : MonoBehaviour
         gameObject.tag = "Box";
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (OBcount == limit)
