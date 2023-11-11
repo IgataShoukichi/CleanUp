@@ -18,7 +18,7 @@ public class cardboardBox : MonoBehaviour
         arrow.SetActive(true);
         closeBox.SetActive(false);
         ending.SetActive(false);
-        GetComponent<GrabObject1>().enabled = false;
+        GetComponent<GrabObject>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = false;
         GetComponent<Outline>().enabled = false;
         gameObject.tag = "Box";
@@ -31,7 +31,7 @@ public class cardboardBox : MonoBehaviour
             openBox.SetActive(false);
             arrow.SetActive(false);
             closeBox.SetActive(true);
-            GetComponent<GrabObject1>().enabled = true;
+            GetComponent<GrabObject>().enabled = true;
             GetComponent<Outline>().enabled = true;
             gameObject.tag = "OB";
         }

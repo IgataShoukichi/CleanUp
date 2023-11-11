@@ -4,26 +4,33 @@ using UnityEngine;
 
 public class GrabObject : MonoBehaviour
 {
-    SphereCollider sphereCol;
+    BoxCollider BoxCol;
 
     void Start()
     {
-        sphereCol = GetComponent<SphereCollider>();
+        BoxCol = GetComponent<BoxCollider>();
     }
 
     void OnMouseDrag()
     {
-        sphereCol.enabled = false;
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit))
+        if (gameObject.tag != "Box")
         {
-            transform.position = new Vector3(hit.point.x, (float)((hit.point.y) + 0.8), hit.point.z);
+            BoxCol.enabled = false;
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                transform.position = new Vector3(hit.point.x, (float)((hit.point.y) + 1.5), hit.point.z);
+                GetComponent<Rigidbody>().isKinematic = false;
+            }
         }
     }
 
     void OnMouseUp()
     {
-        sphereCol.enabled = true;
+        if (gameObject.tag != "Box")
+        {
+            BoxCol.enabled = true;
+        }
     }
 }
